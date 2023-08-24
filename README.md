@@ -1,14 +1,16 @@
 # Welcome to your CDK TypeScript project
 
-This is a blank project for CDK development with TypeScript.
+This repo for host static website using S3 Bucket and CloudFront to serve secure way.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+1. Create S3 Bucket
+2. Data deployment into S3 bucket
+3. Create CloudFront distribution
+4. Add additional domain name for domain name mapping
+5. Import SSL certificate for additional domain.
+   
 
-## Useful commands
+## Architecture Diagram
+![s3-hosting drawio](https://github.com/namdev-rathod/website-hosting-with-s3-cloudfront/assets/140707502/6c779e88-86f0-4767-859c-7cf8deb90f32)
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+
+
