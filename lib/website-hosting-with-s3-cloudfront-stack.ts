@@ -7,6 +7,8 @@ import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
+import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
+import * as path from 'path';
 
  
 export class WebsiteHostingWithS3CloudfrontStack extends cdk.Stack {
@@ -21,8 +23,15 @@ export class WebsiteHostingWithS3CloudfrontStack extends cdk.Stack {
 
     // Create an S3 bucket for assets
       const assetBucket = new s3.Bucket(this, 'AssetBucket', {
-      //  publicReadAccess: true, // Make the bucket objects accessible to the public
+        bucketName: 'test-s3-bucket-hosting-cdn',
+        removalPolicy: cdk.RemovalPolicy.DESTROY,
       });
+
+    // Deploy files to the S3 bucket during deployment
+      new s3deploy.BucketDeployment(this, 'DeployFiles', {
+      sources: [s3deploy.Source.asset(path.join(__dirname, 'data'))], // 'data' is a folder containing your files
+      destinationBucket: assetBucket,
+    });
 
     // Get existing ACM certificate from N. Virginia (us-east-1) region
         const certificate = acm.Certificate.fromCertificateArn(this, 'ExistingCertificate', 'arn:aws:acm:us-east-1:666930281169:certificate/904cbad9-504d-4de6-ac44-ecd9e25da1a2');
