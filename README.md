@@ -9,16 +9,15 @@ This repo for host static website using S3 Bucket and CloudFront to serve secure
 5. Import SSL certificate for additional domain.
 
 Commands Used:
- aws configure
- npm install -g aws-cdk
- cdk init app --language typescript
- npm install
- npm audit fix
- cdk bootstrap
- cdk deploy --all
-
-
-   
+ 
+ 1. aws configure
+ 2. npm install -g aws-cdk
+ 3. cdk init app --language typescript
+ 4. npm install
+ 5. npm audit fix
+ 6. cdk bootstrap
+ 7. cdk deploy --all
+  
 
 ## Architecture Diagram
 
