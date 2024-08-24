@@ -34,25 +34,25 @@ export class WebsiteHostingWithS3CloudfrontStack extends cdk.Stack {
     });
 
     // Get existing ACM certificate from N. Virginia (us-east-1) region
-        const certificate = acm.Certificate.fromCertificateArn(this, 'ExistingCertificate', 'arn:aws:acm:us-east-1:666930281169:certificate/904cbad9-504d-4de6-ac44-ecd9e25da1a2');
+        const certificate = acm.Certificate.fromCertificateArn(this, 'ExistingCertificate', 'arn:aws:acm:us-east-1:448049819544:certificate/a751d5b1-6a6c-4bba-80c3-55ed2719c2cb');
 
    // Create a CloudFront distribution with S3 origin
       const distribution = new cloudfront.Distribution(this, 'Distribution', {
         defaultBehavior: { origin: new origins.S3Origin(assetBucket)
       },
         certificate: certificate,
-        domainNames: ['app.awsguruji.net']
+        domainNames: ['www.testmyaws.work.gd']
       });
 
     // Fetch existing Route 53 hosted zone
       const hostedZone = route53.HostedZone.fromLookup(this, 'ExistingHostedZone', {
-        domainName: 'awsguruji.net', // Replace with your domain name
+        domainName: 'testmyaws.work.gd', // Replace with your domain name
       });
 
     // Create DNS entry in Route 53
       new route53.ARecord(this, 'AppRecord', {
         zone: hostedZone,
-        recordName: 'app',
+        recordName: 'www',
         target: route53.RecordTarget.fromAlias(new route53Targets.CloudFrontTarget(distribution)),
       });
 
