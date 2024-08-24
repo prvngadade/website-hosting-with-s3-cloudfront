@@ -10,7 +10,8 @@ This repo for host static website using S3 Bucket and CloudFront to serve secure
    
 
 ## Architecture Diagram
-![s3-hosting drawio](https://github.com/namdev-rathod/website-hosting-with-s3-cloudfront/assets/140707502/6c779e88-86f0-4767-859c-7cf8deb90f32)
+
+![image](https://github.com/user-attachments/assets/22af6189-5abe-4859-9b97-5f6c466c2697)
 
 
 
