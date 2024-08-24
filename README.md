@@ -18,7 +18,8 @@ Commands Used:
  6. cdk bootstrap
  7. cdk deploy --all
   
-
+**Domain Name: https://www.testmyaws.work.gd/index.html
+**
 ## Architecture Diagram
 
 ![image](https://github.com/user-attachments/assets/22af6189-5abe-4859-9b97-5f6c466c2697)
